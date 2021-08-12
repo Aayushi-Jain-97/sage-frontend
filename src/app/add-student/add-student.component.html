@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a routerLink="/">Student</a></li>
+                <li class="main-header__item"><a class="active" routerLink="/add-student">Add Student</a></li>
+                <li class="main-header__item"><a routerLink="/course">Course</a></li>
+                <li class="main-header__item"><a routerLink="/add-course">Add Course</a></li>
+                <li class="main-header__item"><a routerLink="/course-register">Subscribe Course</a></li>
+                <li class="main-header__item"><a routerLink="/report">Report</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 *ngIf="!edit">Add Student</h1>
+        <h1 *ngIf="edit">Edit Student</h1>
+        <form method="POST" class="student-form">
+            <div class="form-control">
+                <label>First Name</label><input type="text" name="firstname" [(ngModel)]="first_name">
+                <label>Last Name</label><input type="text" name="lastname" [(ngModel)]="last_name">
+                <label>Date of Birth</label><input type="date" name="dob" [(ngModel)]="dob">
+                <label>Contact Number</label><input type="number" name="mobile" [(ngModel)]="contact_no">
+            </div>
+
+            <button type="submit" (click)="addStudent()" *ngIf="!edit">Add Student</button>
+            <button type="submit" (click)="editStudent()" *ngIf="edit">Edit Student</button>
+        </form>
+    </main> 
+</body>
+</html>

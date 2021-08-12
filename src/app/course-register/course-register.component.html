@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a routerLink="/">Student</a></li>
+                <li class="main-header__item"><a routerLink="/add-student">Add Student</a></li>
+                <li class="main-header__item"><a routerLink="/course">Course</a></li>
+                <li class="main-header__item"><a routerLink="/add-course">Add Course</a></li>
+                <li class="main-header__item"><a class="active" routerLink="/course-register">Subscribe Course</a></li>
+                <li class="main-header__item"><a routerLink="/report">Report</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Student Course Registration</h1>
+        <button (click)="add()" style="margin: 12px;">Add</button>
+        <div *ngFor="let courseAr of courseRegisterArray" style="display: flex; margin: 12px;">
+            <label>Student Name</label>
+            <select name="student" [(ngModel)]="courseAr.sname">
+                <option *ngFor="let s of students" [value]="s.student_id">{{s.first_name}} {{s.last_name}}</option>
+            </select>
+            <label style="margin-left: 12px;">Course Name</label>
+            <select name="course" [(ngModel)]="courseAr.cname">
+                <option *ngFor="let c of courses" [value]="c.course_id">{{c.name}}</option>
+            </select>
+        </div>
+        <button type="submit" (click)="registerCourse()" style="margin: 12px;">Submit</button>
+    </main> 
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course</title>
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a routerLink="/">Student</a></li>
+                <li class="main-header__item"><a routerLink="/add-student">Add Student</a></li>
+                <li class="main-header__item"><a class="active" routerLink="/course">Course</a></li>
+                <li class="main-header__item"><a routerLink="/add-course">Add Course</a></li>
+                <li class="main-header__item"><a routerLink="/course-register">Subscribe Course</a></li>
+                <li class="main-header__item"><a routerLink="/report">Report</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Course</h1>
+        <table border="1px">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor = "let c of courses">
+                <td>{{c.name}}</td>
+                <td>{{c.details}}</td>
+                <td>
+                    <button style="margin-right: 5px;" (click)="editCourse(c)">Edit</button>
+                    <button (click)="deleteCourse(c.course_id)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </main> 
+</body>
+</html>

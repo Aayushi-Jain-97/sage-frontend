@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title *ngIf="!edit">Add Course</title>
+    <title *ngIf="edit">Edit Course</title>
+
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a routerLink="/">Student</a></li>
+                <li class="main-header__item"><a routerLink="/add-student">Add Student</a></li>
+                <li class="main-header__item"><a routerLink="/course">Course</a></li>
+                <li class="main-header__item"><a class="active" routerLink="/add-course">Add Course</a></li>
+                <li class="main-header__item"><a routerLink="/course-register">Subscribe Course</a></li>
+                <li class="main-header__item"><a routerLink="/report">Report</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Add Course</h1>
+        <form method="POST" class="student-form">
+            <div class="form-control">
+                <label>Course Name</label><input type="text" name="name" [(ngModel)]="name">
+                <label>Course Details</label><textarea name="details" [(ngModel)]="details"></textarea>
+            </div>
+            <button type="submit" (click)="addCourse()" *ngIf="!edit">Add Course</button>
+            <button type="submit" (click)="editCourse()"*ngIf="edit">Edit Course</button>
+        </form>
+    </main> 
+</body>
+</html>
